@@ -27,7 +27,7 @@ Route::get('/tra-cuu',[
     'as' => 'tra-cuu.index',
     'uses' => 'SearchController@index'
 ]);
-Route::get('/',[
+Route::get('/test',[
     'as' => 'home.two',
     'uses' => 'HomeController@indexTwo'
 ]);
@@ -76,15 +76,15 @@ Route::get('/bang-gia',[
 //user
 Route::get('/dang-ky', [
     'as' => 'user.register',
-    'uses' => 'UserController@register'
+    'uses' => 'DoiThe\UserController@register'
 ]);
 Route::post('/dang-ky', [
     'as' => 'user.post-register',
-    'uses' => 'UserController@postRegister'
+    'uses' => 'DoiThe\UserController@postRegister'
 ]);
 Route::get('dang-nhap',[
    'as' => 'user.login',
-   'uses' => 'AuthController@loginForm'
+   'uses' => 'DoiThe\AuthController@loginForm'
 ]);
 
 Route::post('/quen-mat-khau',[
@@ -155,10 +155,19 @@ Route::group(['middleware' => ['CheckLogin']], function() {
 
 Route::post('dang-nhap',[
    'as' => 'user.login',
-   'uses' => 'AuthController@login'
+   'uses' => 'DoiThe\AuthController@login'
 ]);
 
 Route::get('/dang-xuat', [
     'as' => 'user.logout',
     'uses' => 'AuthController@logout'
+]);
+
+/**
+ * -------------------------Doi-The---------------------------
+ */
+Route::get('/',[
+    'as'=>'doithe.home',
+    'uses'=>'DoiThe\HomeController@index'
+
 ]);

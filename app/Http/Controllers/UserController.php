@@ -34,7 +34,7 @@ class  UserController extends  Controller
         if (Auth::check()) {
             $userId = Auth::user()->id;
             $userProfile = $this->user->find($userId);
-            return view('frontend.page.users.profile', compact('userProfile'));
+            return view('doithe.page.user.profile', compact('userProfile'));
         } else {
             return redirect()->route('user.login')->withErrors('Vui lòng đăng nhập vào hệ thống!');
         }
