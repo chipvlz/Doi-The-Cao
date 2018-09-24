@@ -1,0 +1,8 @@
+.GoldRecharge .BlockBank ul li {
+    float: left;
+    margin-right: 14px;
+}
+.GoldRecharge .BlockBank ul {
+    padding: 0px;
+    margin-left: 95px;
+}
