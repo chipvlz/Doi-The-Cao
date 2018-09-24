@@ -24,10 +24,10 @@
 
                 <!-- Left and right controls -->
                 <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                    <i class="fa fa-arrow-left"></i>
+
                 </a>
                 <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                    <i class="fa fa-arrow-right"></i>
+
                 </a>
             </div>
         </div>
@@ -46,34 +46,23 @@
                 </tr>
                 </thead>
                 <tbody>
+                @forelse($telco as $telcos)
                 <tr>
-                    <td>Viettel</td>
-                    <td class="text-right ng-binding">36%</td>
+                    <td>
+                       {{$telcos->name}}
+                    </td>
+                    <td class="text-right ng-binding">{{$telcos->rate}}%</td>
                     <td class="text-right">
-                        <span class="title-active">Hoạt động.</span>
+                        @if($telcos->status==1)
+                        <span class="btn btn-success btn-xs">Hoạt động</span>
+                        @elseif($telcos->status==0)
+                            <span class="btn btn-danger btn-xs">Bảo trì</span>
+                        @endif
                     </td>
                 </tr>
-                <tr>
-                    <td>Mobifone</td>
-                    <td class="text-right ng-binding">36%</td>
-                    <td class="text-right">
-                        <span class="title-active">Hoạt động.</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Vinaphone</td>
-                    <td class="text-right ng-binding">36%</td>
-                    <td class="text-right">
-                        <span class="title-active">Hoạt động.</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Gate</td>
-                    <td class="text-right ng-binding">36%</td>
-                    <td class="text-right">
-                        <span class="title-active">Hoạt động.</span>
-                    </td>
-                </tr>
+                    @empty
+                @endforelse
+
                 </tbody>
             </table>
         </div>

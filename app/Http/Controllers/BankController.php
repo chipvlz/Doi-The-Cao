@@ -41,7 +41,7 @@ class BankController extends Controller
     public function  backPay()
     {
         if(\Auth::check()) {
-            return view('frontend.page.bank.backPay');
+            return view('doithe.page.pay.payment');
         } else {
             return redirect('/dang-nhap')->withErrors('Vui lòng đăng nhập để thực hiện!');
         }
@@ -91,7 +91,6 @@ class BankController extends Controller
         $passwordCurrent = \Auth::user()->password_two;
         $userId = \Auth::user()->id;
         $dataRequest['user_id'] = $userId;
-        if (Hash::check($dataRequest['password_two'], $passwordCurrent)) {
             if (($this->bank->checkBankForUser($dataRequest['bank_name'], $userId))==0) {
                 if ($this->bank->save($dataRequest)) {
                     return redirect()->back()->with("success", "Thêm mới ngân hàng thành công!");
@@ -101,9 +100,7 @@ class BankController extends Controller
             } else {
                 return redirect()->back()->withErrors("Ngân hàng:".$dataRequest['bank_name']." đã được thêm!")->withInput();
             }
-        } else {
-            return redirect()->back()->withErrors("Mật khẩu cấp 2 không đúng!")->withInput();
-        }
+
     }
     public function  historyWithDraw(Request $request)
     {
@@ -130,7 +127,7 @@ class BankController extends Controller
     {
         if(\Auth::check()) {
             $price = Price::where('status',1)->get();
-            return view('frontend.page.bank.card', compact('price'));
+            return view('doithe.page.pay.topup', compact('price'));
         } else {
             return redirect('/dang-nhap')->withErrors('Vui lòng đăng nhập để thực hiện tra cứu !');
         }

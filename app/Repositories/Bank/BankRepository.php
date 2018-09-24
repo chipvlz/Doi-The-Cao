@@ -43,4 +43,11 @@ class  BankRepository implements BankRepositoryInterface
             ->count();
     }
 
+    public function getBankForUser($userId)
+    {
+        return Bank::where('user_id', $userId)->get();
+    }
+
+
+
 }

@@ -9,5 +9,7 @@ interface  BankRepositoryInterface
 
     public function checkBankExitsUser($userId);
 
+    public function getBankForUser($userId);
+
 }
 ?>

@@ -29,4 +29,14 @@ class ChangePasswordRequest extends Request
             'password_new_confirm' => 'required|same:password_new',
         ];
     }
+
+    public function  messages()
+    {
+        return [
+            'password_current.required'=>'Vui lòng nhập mật khẩu cũ !',
+            'password_new.required'=>'Vui lòng nhập mật khẩu mới!',
+            'password_new_confirm.required'=>'Vui lòng nhập lại mật khẩu mới!',
+            'password_new_confirm.same'=>'Nhập lại mật khẩu mới không đúng !'
+        ];
+    }
 }

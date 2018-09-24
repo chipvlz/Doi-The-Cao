@@ -9,7 +9,7 @@
                     <div class="form-group">
                         <label class="control-label col-sm-4">Họ và tên:</label>
                         <div class="col-sm-8">
-                            <input type="text" name="name" class="form-control" value="{{}}">
+                            <input type="text" name="name" class="form-control" value="{{$userProfile->fullname}}">
                         </div>
                     </div>
                     <div class="form-group">

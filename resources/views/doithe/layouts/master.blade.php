@@ -59,7 +59,7 @@
             <a href="#menu" class="m-expand"></a>
 
             <div class="logo">
-                <a class="logo-desktop" href="javascript:void(0);" ui-sref="home"><img style="height: 34px; padding-top: 12px;" src="{{asset('doithe/assets/img/logo-web.png')}}"/></a>
+                <a class="logo-desktop" href="/" ui-sref="home"><img style="height: 34px; padding-top: 12px;" src="{{asset('doithe/assets/img/logo-web.png')}}"/></a>
             </div>
 
             @if(!\Auth::check())
@@ -92,7 +92,7 @@
                         <div class="hi-thumb">
                             <img src="{{asset('doithe/assets/img/avatar-default.png')}}" alt="avatar">
                         </div>
-                        <p><span class="number-account"></span><br> đ</p><i
+                        <p><span class="number-account">GUEST</span><br>{{number_format(\Auth::user()->money)}}đ</p><i
                                 class="fa fa-chevron-down"></i>
                     </div>
                 </a>
@@ -107,12 +107,12 @@
                             </a>
                         </li>
                         <li><a href="{{URL::route('user.profile')}}" ui-sref="profile"><i class="fa fa fa-th-large"></i>Tài khoản</a></li>
-                        <li><a href="javascript:void(0);" ui-sref="changePassword"><i class="fa fa-lock"></i>Đổi mật khẩu</a></li>
-                        <li><a href="javascript:void(0);" ui-sref="changePassword2"><i class="fa fa-key"></i>Mật khẩu cấp 2</a></li>
-                        <li><a href="javascript:void(0);" ui-sref="bank"><i class="fa fa fa-credit-card"></i>Ngân hàng</a></li>
-                        <li><a href="javascript:void(0);" ui-sref="logBalance"><i class="fa fa-history"></i>Biến động số dư</a></li>
-                        <li><a href="javascript:void(0);" ui-sref="history"><i class="fa fa fa-clock-o"></i>Báo cáo</a></li>
-                        <li><a href="javascript:void(0);" ui-sref="api-setup"><i class="fa fa fa-cogs"></i>Kết nối API</a></li>
+                        <li><a href="{{URL::route('user.reset-password')}}" ui-sref="changePassword"><i class="fa fa-lock"></i>Đổi mật khẩu</a></li>
+                        <li><a href="{{URL::route('user.password-two')}}" ui-sref="changePassword2"><i class="fa fa-key"></i>Mật khẩu cấp 2</a></li>
+                        <li><a href="{{URL::route('bank.index')}}" ui-sref="bank"><i class="fa fa fa-credit-card"></i>Ngân hàng</a></li>
+                        {{--<li><a href="javascript:void(0);" ui-sref="logBalance"><i class="fa fa-history"></i>Biến động số dư</a></li>--}}
+                        {{--<li><a href="javascript:void(0);" ui-sref="history"><i class="fa fa fa-clock-o"></i>Báo cáo</a></li>--}}
+                        {{--<li><a href="javascript:void(0);" ui-sref="api-setup"><i class="fa fa fa-cogs"></i>Kết nối API</a></li>--}}
                         <li><a href="javascript:void(0);" ui-sref="logout"><i class="fa fa fa-sign-out"></i>Thoát</a></li>
                     </ul>
                 </nav>
@@ -123,22 +123,22 @@
                 <div class="menu-navigator clearfix">
                     <ul class="nav navbar-nav">
                         <li>
-                            <a class="mn-desktop" href="javascript:void(0);" ui-sref="home">Trang chủ</a>
+                            <a class="mn-desktop" href="/" ui-sref="home">Trang chủ</a>
                         </li>
                         <li>
-                            <a class="mn-desktop" href="javascript:void(0);" ui-sref="charge">Nạp tiền</a>
+                            <a class="mn-desktop" href="{{URL::route('doithe.pay-change')}}" ui-sref="charge">Nạp tiền</a>
                         </li>
+                        {{--<li>--}}
+                            {{--<a class="mn-desktop" href="javascript:void(0);" ui-sref="transfer">Chuyển tiền</a>--}}
+                        {{--</li>--}}
                         <li>
-                            <a class="mn-desktop" href="javascript:void(0);" ui-sref="transfer">Chuyển tiền</a>
-                        </li>
-                        <li>
-                            <a class="mn-desktop" href="javascript:void(0);" ui-sref="payment">Rút tiền</a>
+                            <a class="mn-desktop" href="{{URL::route('bank.back-pay')}}" ui-sref="payment">Rút tiền</a>
                         </li>
                         <li>
                             <a class="mn-desktop" href="javascript:void(0);">Dịch vụ <i
                                         class="fa fa-chevron-down"></i> <i class="fa fa-chevron-right"></i></a>
                             <ul class="list-unstyled alias-menu">
-                                <li><a href="javascript:void(0);" ui-sref="topup">Nạp tiền điện thoại</a></li>
+                                <li><a href="{{URL::Route('bank.add-money-phone')}}" ui-sref="topup">Nạp tiền điện thoại</a></li>
                                 <li><a href="javascript:void(0);" ui-sref="softpin-mobile">Mua thẻ điện thoại</a></li>
                             </ul>
                         </li>
@@ -153,23 +153,22 @@
         <nav class="mm-menu mm-horizontal mm-offcanvas" id="menu">
             <ul>
                 <li>
-                    <a href="javascript:void(0);" ui-sref="home">Trang chủ</a>
+                    <a href="/" ui-sref="home">Trang chủ</a>
                 </li>
                 <li>
-                    <a href="javascript:void(0);" ui-sref="charge">Nạp tiền</a>
+                    <a href="{{URL::route('doithe.pay-change')}}" ui-sref="charge">Nạp tiền</a>
                 </li>
+                {{--<li>--}}
+                    {{--<a href="javascript:void(0);" ui-sref="transfer">Chuyển tiền</a>--}}
+                {{--</li>--}}
                 <li>
-                    <a href="javascript:void(0);" ui-sref="transfer">Chuyển tiền</a>
-                </li>
-                <li>
-                    <a href="javascript:void(0);" ui-sref="payment">Rút tiền</a>
+                    <a href="{{URL::route('bank.back-pay')}}" ui-sref="payment">Rút tiền</a>
                 </li>
                 <li>
                     <a href="javascript:void(0);">Dịch vụ</a>
                     <ul class="list-unstyled alias-menu">
-                        <li><a href="javascript:void(0);" ui-sref="topup">Nạp tiền điện thoại</a></li>
+                        <li><a href="{{URL::Route('bank.add-money-phone')}}" ui-sref="topup">Nạp tiền điện thoại</a></li>
                         <li><a href="javascript:void(0);" ui-sref="softpin-mobile">Mua thẻ điện thoại</a></li>
-                        <li><a href="javascript:void(0);" ui-sref="softpin-game">Mua thẻ Game</a></li>
                     </ul>
                 </li>
                 <li>
@@ -301,7 +300,7 @@
 </div>
 
 <div class="newsletter-bar" ng-if="alert.alert == 1">
-    <div class="newsletter-bar-inner">
+ n   <div class="newsletter-bar-inner">
         <marquee align="middle" direction="left" scrollamount="2" style="margin-right: 10px;">
 
             KHÁCH HÀNG MUỐN NẠP THẺ VIETTEL LIÊN HỆ QUA ZALO
@@ -334,5 +333,6 @@
         }
     });
 </script>
+@yield('script')
 </body>
 </html>

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\DoiThe;
 
+use App\Models\Rate;
+use App\Models\Telco;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -11,6 +13,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('doithe.index');
+        $telco = Rate::all();
+        return view('doithe.index', compact('telco'));
     }
 }

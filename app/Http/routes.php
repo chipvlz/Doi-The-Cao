@@ -33,8 +33,13 @@ Route::get('/test',[
 ]);
 Route::get('/tai-khoan-ngan-hang',[
     'as' => 'bank.index',
-    'uses' => 'BankController@index'
+    'uses' => 'DoiThe\BankController@index'
 ]);
+Route::get('/them-tai-khoan-ngan-hang',[
+    'as' => 'bank.add',
+    'uses' => 'DoiThe\BankController@addBank'
+]);
+
 Route::post('/tai-khoan-ngan-hang',[
     'as' => 'bank.post-index',
     'uses' => 'BankController@addBank'
@@ -46,6 +51,10 @@ Route::get('/rut-tien',[
 Route::post('/rut-tien',[
     'as' => 'post-bank.back-pay',
     'uses' => 'BankController@processBackPay'
+]);
+Route::get('/xoa-ngan-hang/{id}',[
+    'as' => 'bank.delete',
+    'uses' => 'DoiThe\BankController@delete'
 ]);
 Route::get('/lich-su-rut-tien',[
     'as' => 'bank.history-with-draw',
@@ -112,7 +121,7 @@ Route::group(['middleware' => ['CheckLogin']], function() {
     ]);
     Route::get('/doi-mat-khau', [
         'as' => 'user.reset-password',
-        'uses' => 'UserController@resetPassword'
+        'uses' => 'DoiThe\UserController@resetPassword'
     ]);
     Route::post('/doi-mat-khau', [
         'as' => 'user.reset-password-post',
@@ -120,11 +129,11 @@ Route::group(['middleware' => ['CheckLogin']], function() {
     ]);
     Route::get('/tao-mat-khau-cap-2', [
         'as' => 'user.password-two',
-        'uses' => 'UserController@passwordTwo'
+        'uses' => 'DoiThe\UserController@passwordTwo'
     ]);
     Route::post('/tao-mat-khau-cap-2', [
         'as' => 'user.post-password-two',
-        'uses' => 'UserController@processPasswordTwo'
+        'uses' => 'DoiThe\UserController@processPasswordTwo'
     ]);
 
 //thanh toan
@@ -169,5 +178,8 @@ Route::get('/dang-xuat', [
 Route::get('/',[
     'as'=>'doithe.home',
     'uses'=>'DoiThe\HomeController@index'
-
+]);
+Route::get('/nap-tien',[
+    'as'=>'doithe.pay-change',
+    'uses'=>'DoiThe\PayController@change'
 ]);
