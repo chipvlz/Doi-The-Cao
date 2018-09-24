@@ -49,7 +49,7 @@
                 @forelse($telco as $telcos)
                 <tr>
                     <td>
-                       {{$telcos->name}}
+                       {{$telcos->telco}}
                     </td>
                     <td class="text-right ng-binding">{{$telcos->rate}}%</td>
                     <td class="text-right">
