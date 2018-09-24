@@ -237,7 +237,7 @@
                                 <li>
                                     <i class="fa fa-envelope-o"></i>
 
-                                    <p><a href="javascript:void(0);" class="nummber"> <span class="__cf_email__" data-cfemail="85e1eaecf1ede0ebede4ebedc5e2e8e4ece9abe6eae8">[email&#160;protected]</span> </a></p>
+                                    <p><a href="javascript:void(0);" class="nummber"> <span class="__cf_email__" data-cfemail="85e1eaecf1ede0ebede4ebedc5e2e8e4ece9abe6eae8">doithe@thecaogiatot.com</span> </a></p>
 
                                     <p class="text-support"><span>Liên hệ qua Email</span></p>
                                 </li>
@@ -300,9 +300,8 @@
 </div>
 
 <div class="newsletter-bar" ng-if="alert.alert == 1">
- n   <div class="newsletter-bar-inner">
+    <div class="newsletter-bar-inner">
         <marquee align="middle" direction="left" scrollamount="2" style="margin-right: 10px;">
-
             KHÁCH HÀNG MUỐN NẠP THẺ VIETTEL LIÊN HỆ QUA ZALO
 
         </marquee>

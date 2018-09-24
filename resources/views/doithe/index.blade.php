@@ -72,6 +72,7 @@
                     <i class="fa fa-angle-right"></i>
                 </a>
             </div>
+
             <ul class="list-unstyled">
                 <li>
                     <a class="info-news clearfix" href="javascript:void(0);">
