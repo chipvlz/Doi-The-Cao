@@ -145,6 +145,9 @@
                         <li>
                             <a class="mn-desktop" href="javascript:void(0);" ui-sref="fee">Bảng giá</a>
                         </li>
+                        <li>
+                        <a class="mn-desktop" href="javascript:void(0);" ui-sref="transfer">Lịch sử</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -158,9 +161,6 @@
                 <li>
                     <a href="{{URL::route('doithe.pay-change')}}" ui-sref="charge">Nạp tiền</a>
                 </li>
-                {{--<li>--}}
-                    {{--<a href="javascript:void(0);" ui-sref="transfer">Chuyển tiền</a>--}}
-                {{--</li>--}}
                 <li>
                     <a href="{{URL::route('bank.back-pay')}}" ui-sref="payment">Rút tiền</a>
                 </li>
@@ -176,6 +176,9 @@
                 </li>
                 <li>
                     <a href="javascript:void(0);" ui-sref="fee">Bảng giá</a>
+                </li>
+                <li>
+                <a href="javascript:void(0);" ui-sref="transfer">Lịch sử</a>
                 </li>
             </ul>
         </nav>

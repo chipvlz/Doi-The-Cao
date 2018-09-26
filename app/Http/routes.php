@@ -64,10 +64,6 @@ Route::get('/nap-tien-dien-thoai',[
     'as' => 'bank.add-money-phone',
     'uses' => 'BankController@addMoneyPhone'
 ]);
-Route::post('/nap-tien-dien-thoai',[
-    'as' => 'bank.post-add-money-phone',
-    'uses' => 'BankController@procesAddMoneyPhone'
-]);
 Route::get('/lich-nap-tien-dien-thoai',[
     'as' => 'bank.history-pay-phone',
     'uses' => 'BankController@historyPayPhone'
@@ -182,4 +178,8 @@ Route::get('/',[
 Route::get('/nap-tien',[
     'as'=>'doithe.pay-change',
     'uses'=>'DoiThe\PayController@change'
+]);
+Route::post('/nap-tien',[
+    'as'=>'doithe.topup',
+    'uses'=>'DoiThe\PayController@topUp'
 ]);
