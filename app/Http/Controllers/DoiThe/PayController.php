@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\DoiThe;
 
 use App\Models\HistoryTopUp;
+use App\Models\Rate;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class PayController extends Controller
     public function change()
     {
         if(\Auth::check()) {
-            return view('doithe.page.pay.change');
+            $rate = Rate::where('status',1)->get();
+            return view('doithe.page.pay.change', compact('rate'));
         } else {
             return redirect('/dang-nhap')->withErrors('Vui lòng đăng nhập để thực hiện!');
         }

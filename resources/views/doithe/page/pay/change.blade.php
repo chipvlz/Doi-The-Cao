@@ -12,18 +12,14 @@
                         <div class="col-sm-8">
                             <div role="toolbar" class="btn-toolbar">
                                 <div data-toggle="buttons" class="btn-group">
+                                    @forelse($rate as $rates)
                                     <label class="btn btn-default" style="width:25%">
-                                        <input type="radio" value="vtt" title="Viettel" name="provider">
-                                        <img src="{{asset('doithe/assets/img/vtt.png')}}" style="width:100%">
+                                        <input type="radio" value="{{$rates->telco_key}}" title="{{$rates->telco}}" name="provider">
+                                        <img src="{{$rates->image}}" style="width:100%">
                                     </label>
-                                    <label class="btn btn-default" style="width:25%">
-                                        <input type="radio" value="vms" title="Mobifone" name="provider">
-                                        <img src="{{asset('doithe/assets/img/vms.png')}}" style="width:100%">
-                                    </label>
-                                    <label class="btn btn-default" style="width:25%">
-                                        <input type="radio" value="vnp" title="Vinaphone" name="provider">
-                                        <img src="{{asset('doithe/assets/img/vnp.png')}}" style="width:100%">
-                                    </label>
+                                    @empty
+                                    @endforelse
+
                                 </div>
                             </div>
                         </div>
@@ -31,13 +27,13 @@
                     <div class="form-group">
                         <label class="control-label col-sm-4">Thông tin phí:</label>
                         <div class="control-label col-sm-8">
-																						<span class="text-left pull-left">Viettel:
-																							<strong class="ng-binding">36%</strong>, Mobifone:
-																							<strong class="ng-binding">36%</strong>, Vinaphone:
-																							<strong class="ng-binding">36%</strong>, Gate:
-																							<strong class="ng-binding">36%</strong>
-                                                                                            <!-- ngIf: scoinActive -->
-																						</span>
+							<span class="text-left pull-left">
+                                @forelse($rate as $rateCk)
+                                        {{$rateCk->telco}}:
+                                        <strong class="ng-binding">{{$rateCk->rate}}%</strong>
+                                @empty
+                                @endforelse
+                           </span>
                         </div>
                     </div>
                     <div class="form-group">
@@ -50,6 +46,12 @@
                         <label class="control-label col-sm-4">Mã serial:</label>
                         <div class="col-sm-8">
                             <input type="text" id="serial" name="serial" class="form-control ng-pristine ng-untouched ng-valid" ng-model="serial">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">Mệnh giá:</label>
+                        <div class="col-sm-8">
+                            <input type="number" id="money" name="money" class="form-control ng-pristine ng-untouched ng-valid" ng-model="serial">
                         </div>
                     </div>
                     <div class="form-group">
