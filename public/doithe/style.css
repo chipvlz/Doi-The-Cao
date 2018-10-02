@@ -10,6 +10,11 @@
 .chat,.payment-list,ul.none-list,ul.tinylogo{
     list-style:none
 }
+.top_nev {
+    padding: 5px 0;
+    background: #0098DB;
+    color: #fff;
+}
 .chat{
     margin:0;
     padding:0

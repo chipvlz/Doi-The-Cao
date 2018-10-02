@@ -56,7 +56,7 @@ Route::get('/xoa-ngan-hang/{id}',[
     'as' => 'bank.delete',
     'uses' => 'DoiThe\BankController@delete'
 ]);
-Route::get('/lich-su-rut-tien',[
+Route::get('/lich-su-rut-tiens',[
     'as' => 'bank.history-with-draw',
     'uses' => 'BankController@historyWithDraw'
 ]);
@@ -178,6 +178,10 @@ Route::get('/',[
 Route::get('/nap-tien',[
     'as'=>'doithe.pay-change',
     'uses'=>'DoiThe\PayController@change'
+]);
+Route::get('/lich-su-rut-tien',[
+    'as'=>'history.bank',
+    'uses'=>'DoiThe\HistoryController@historyBank'
 ]);
 Route::post('/nap-tien',[
     'as'=>'doithe.topup',

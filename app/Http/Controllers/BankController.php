@@ -41,7 +41,9 @@ class BankController extends Controller
     public function  backPay()
     {
         if(\Auth::check()) {
-            return view('doithe.page.pay.payment');
+            $userId = \Auth::user()->id;
+            $bank = $this->bank->getBankForUser($userId);
+            return view('doithe.page.pay.payment', compact('bank'));
         } else {
             return redirect('/dang-nhap')->withErrors('Vui lòng đăng nhập để thực hiện!');
         }
@@ -62,7 +64,8 @@ class BankController extends Controller
                     if (($moneyCurrent > (int)$dataRequest['money']) && ($moneyCurrent - (int)$dataRequest['money']) >= $moneyWithDraw) {
                         if ($this->withDraw->save($dataRequest)) {
                             if ($this->user->update($userId, [
-                                'money' => $moneyCurrent - (int)$dataRequest['money']
+                                'money' => $moneyCurrent - (int)$dataRequest['money'],
+                                'money_bank' =>(int)\Auth::user()->money_bank+(int)$dataRequest['money']
                             ])) {
                                 return redirect()->back()->with("success", "Yêu cầu rút tiền được thực hiện , vui lòng chờ nhận kết quả!");
                             } else {

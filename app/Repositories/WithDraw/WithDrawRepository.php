@@ -20,6 +20,9 @@ class  WithDrawRepository implements WithDrawRepositoryInterface
         if (isset($data['note'])) {
             $withDraw->note = $data['note'];
         }
+        if (isset($data['bank'])) {
+            $withDraw->bank_id = $data['bank'];
+        }
         if (isset($data['user_id'])) {
             $withDraw->user_id = $data['user_id'];
         }

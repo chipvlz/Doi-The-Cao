@@ -52,7 +52,32 @@
 
 </head>
 <body>
+<div class="top_nev">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-sm-4">
+                <div class="head-full">
+                    <div id="spansum">
+                        <i class="fa fa-user"></i> Xin chào:
+                        <b>GUEST</b>
+                        <b>&nbsp;&nbsp;-&nbsp;&nbsp;</b>
+                        <span>Tổng số tiền: </span>
+                        <span class="tienconlai">
+                                    <b>6,800</b> VNĐ
+                                </span>
+                        <span class="lenhrut"> -&nbsp; Chờ duyệt: &nbsp;
+                                    <b>0</b>
+                                </span>
+                        <span class="lenhrut"> -&nbsp; Tiền chờ xử lý: &nbsp;
+                                    <b>0</b>
+                                </span>
+                    </div>
+                </div>
+            </div>
 
+        </div>
+    </div>
+</div>
 <div class="mm-page">
     <div class="topmenu">
         <div class="menu clearfix">
@@ -146,7 +171,12 @@
                             <a class="mn-desktop" href="javascript:void(0);" ui-sref="fee">Bảng giá</a>
                         </li>
                         <li>
-                        <a class="mn-desktop" href="javascript:void(0);" ui-sref="transfer">Lịch sử</a>
+                            <a class="mn-desktop" href="javascript:void(0);">Lịch sử<i
+                                        class="fa fa-chevron-down"></i> <i class="fa fa-chevron-right"></i></a>
+                            <ul class="list-unstyled alias-menu">
+                                <li><a href="" ui-sref="topup"><i class="fa fa-history"></i> Lịch sử nạp tiền</a></li>
+                                <li><a href="{{URL::route('history.bank')}}" ui-sref="softpin-mobile"><i class="fa fa-history"></i> Lịch sử rút tiền</a></li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
@@ -178,7 +208,11 @@
                     <a href="javascript:void(0);" ui-sref="fee">Bảng giá</a>
                 </li>
                 <li>
-                <a href="javascript:void(0);" ui-sref="transfer">Lịch sử</a>
+                    <a href="javascript:void(0);">Lịch sử</a>
+                    <ul class="list-unstyled alias-menu">
+                        <li><a href="#" ui-sref="topup"><i class="fa fa-history"></i> Lịch sử nạp tiền</a></li>
+                        <li><a href="javascript:void(0);" ui-sref="softpin-mobile">Lịch sử rút tiền</a></li>
+                    </ul>
                 </li>
             </ul>
         </nav>

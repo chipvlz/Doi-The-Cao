@@ -63,6 +63,9 @@ class  UserRepository implements UserRepositoryInterface
             if (isset($data['money'])) {
                 $user->money = $data['money'];
             }
+            if (isset($data['money_bank'])) {
+                $user->money_bank = $data['money_bank'];
+            }
             return $user->save();
         } else {
             return false;
